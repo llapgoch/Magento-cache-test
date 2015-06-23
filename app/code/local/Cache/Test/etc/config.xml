@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Cache_Test>
+			<version>0.1.0</version>
+		</Cache_Test>
+	</modules>
+	
+	<frontend>
+		<events>
+			<controller_action_predispatch>
+				<observers>
+					<cache_test_output>
+						<class>cachetest/observer</class>
+						<method>outputValue</method>
+					</cache_test_output>
+				</observers>
+			</controller_action_predispatch>
+		</events>
+	</frontend>
+	
+	<global>
+		<helpers>
+			<cachetest>
+				<class>Cache_Test_Helper</class>
+			</cachetest>
+		</helpers>
+		
+		<models>
+			<cachetest>
+				<class>Cache_Test_Model</class>
+			</cachetest>
+		</models>
+		
+		<cache>
+			<types>
+				<cache_test	module="cachetest" translate="label description">
+					<label>The Amazing Cache Test</label>
+					<description>It's the amazing cache test cache type!</description>
+					<tags>CACHE_TEST</tags>
+				</cache_test>
+			</types>
+		</cache>
+	</global>
+</config>
